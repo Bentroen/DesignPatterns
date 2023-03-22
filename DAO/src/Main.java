@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 import dao.ProductDAO;
 import dao.UserDAO;
 import model.Product;
@@ -14,16 +12,21 @@ public class Main {
 		
 		productDao.create(new Product("123", "Ableton", 799));
 		productDao.create(new Product("456", "GarageBand", 199));
+		productDao.delete(1);
 		productDao.create(new Product("789", "Cakewalk", 499));
 		
 		userDao.create(new User("001", "Alex"));
 		userDao.create(new User("002", "Ben"));
 		userDao.create(new User("003", "Carl"));
+		userDao.update(2, new User("003", "Charlie"));
 		
-		System.out.println(Arrays.toString(productDao.getAll()));
-		System.out.println(Arrays.toString(userDao.getAll()));
+		for (Product element : productDao.getAll()) {
+		    System.out.println(element);
+		}
+		for (User element : userDao.getAll()) {
+		    System.out.println(element);
+		}
 		
 	}
-	
 	
 }
